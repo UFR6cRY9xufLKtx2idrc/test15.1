@@ -21,9 +21,9 @@ package ecs
 
 import (
 	"context"
-	"github.com/IrineSistiana/mosdns/v5/pkg/dnsutils"
-	"github.com/IrineSistiana/mosdns/v5/pkg/query_context"
-	"github.com/IrineSistiana/mosdns/v5/plugin/executable/sequence"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/dnsutils"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence"
 	"github.com/miekg/dns"
 	"net/netip"
 	"strings"
