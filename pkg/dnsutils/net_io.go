@@ -23,7 +23,7 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/pkg/pool"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/pool"
 	"github.com/miekg/dns"
 	"io"
 )
