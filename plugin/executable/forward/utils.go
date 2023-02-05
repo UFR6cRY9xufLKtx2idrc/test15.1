@@ -22,7 +22,7 @@ package fastforward
 import (
 	"context"
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/pkg/upstream"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/upstream"
 	"github.com/miekg/dns"
 	"github.com/prometheus/client_golang/prometheus"
 	"go.uber.org/zap/zapcore"
