@@ -1,6 +1,6 @@
-module github.com/IrineSistiana/mosdns/v5
+module github.com/UFR6cRY9xufLKtx2idrc/mosdns/main
 
-go 1.18
+go 1.20
 
 require (
 	github.com/go-chi/chi/v5 v5.0.8
