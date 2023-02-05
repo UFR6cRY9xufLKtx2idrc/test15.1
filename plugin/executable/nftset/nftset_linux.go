@@ -24,9 +24,9 @@ package nftset
 import (
 	"context"
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/pkg/nftset_utils"
-	"github.com/IrineSistiana/mosdns/v5/pkg/query_context"
-	"github.com/IrineSistiana/mosdns/v5/pkg/utils"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/nftset_utils"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/utils"
 	"github.com/google/nftables"
 	"github.com/miekg/dns"
 	"net/netip"
