@@ -22,8 +22,8 @@ package transport
 import (
 	"context"
 	"errors"
-	"github.com/IrineSistiana/mosdns/v5/pkg/dnsutils"
-	"github.com/IrineSistiana/mosdns/v5/pkg/pool"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/dnsutils"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/pool"
 	"github.com/miekg/dns"
 	"io"
 	"math/rand"
