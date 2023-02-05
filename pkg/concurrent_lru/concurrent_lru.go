@@ -20,7 +20,7 @@
 package concurrent_lru
 
 import (
-	"github.com/IrineSistiana/mosdns/v5/pkg/lru"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/lru"
 	"sync"
 )
 
