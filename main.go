@@ -21,10 +21,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/coremain"
-	"github.com/IrineSistiana/mosdns/v5/mlog"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin"
-	_ "github.com/IrineSistiana/mosdns/v5/tools"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/coremain"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/mlog"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/tools"
 	"github.com/spf13/cobra"
 	_ "net/http/pprof"
 )
