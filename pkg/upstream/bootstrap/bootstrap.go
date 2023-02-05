@@ -21,7 +21,7 @@ package bootstrap
 
 import (
 	"context"
-	"github.com/IrineSistiana/mosdns/v5/pkg/dnsutils"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/dnsutils"
 	"github.com/miekg/dns"
 	"net"
 	"strings"
