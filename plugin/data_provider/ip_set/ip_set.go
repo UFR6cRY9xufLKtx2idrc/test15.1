@@ -22,9 +22,9 @@ package ip_set
 import (
 	"bytes"
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/coremain"
-	"github.com/IrineSistiana/mosdns/v5/pkg/matcher/netlist"
-	"github.com/IrineSistiana/mosdns/v5/plugin/data_provider"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/coremain"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/matcher/netlist"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/data_provider"
 	"net/netip"
 	"os"
 	"strings"
