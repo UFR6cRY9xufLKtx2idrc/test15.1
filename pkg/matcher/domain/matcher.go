@@ -22,7 +22,7 @@ package domain
 import (
 	"errors"
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/pkg/utils"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/utils"
 	"regexp"
 	"strings"
 )
