@@ -24,7 +24,7 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/pkg/utils"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/utils"
 	"github.com/miekg/dns"
 	"net"
 	"sync"
