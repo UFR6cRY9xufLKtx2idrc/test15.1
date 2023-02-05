@@ -23,7 +23,7 @@ package ipset
 
 import (
 	"context"
-	"github.com/IrineSistiana/mosdns/v5/pkg/query_context"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
 )
 
 type ipSetPlugin struct{}
