@@ -20,7 +20,7 @@
 package coremain
 
 import (
-	"github.com/IrineSistiana/mosdns/v5/mlog"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/mlog"
 )
 
 type Config struct {
