@@ -21,7 +21,7 @@ package coremain
 
 import (
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/pkg/utils"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/utils"
 	"github.com/go-chi/chi/v5"
 	"go.uber.org/zap"
 	"reflect"
