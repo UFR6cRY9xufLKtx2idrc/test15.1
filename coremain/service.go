@@ -21,7 +21,7 @@ package coremain
 
 import (
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/mlog"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/mlog"
 	"github.com/kardianos/service"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
