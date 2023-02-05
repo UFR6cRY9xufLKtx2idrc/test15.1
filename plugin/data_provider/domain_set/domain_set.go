@@ -22,9 +22,9 @@ package domain_set
 import (
 	"bytes"
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/coremain"
-	"github.com/IrineSistiana/mosdns/v5/pkg/matcher/domain"
-	"github.com/IrineSistiana/mosdns/v5/plugin/data_provider"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/coremain"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/matcher/domain"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/data_provider"
 	"os"
 )
 
