@@ -20,9 +20,9 @@
 package cache
 
 import (
-	"github.com/IrineSistiana/mosdns/v5/pkg/cache"
-	"github.com/IrineSistiana/mosdns/v5/pkg/dnsutils"
-	"github.com/IrineSistiana/mosdns/v5/pkg/utils"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/cache"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/dnsutils"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/utils"
 	"github.com/miekg/dns"
 	"golang.org/x/exp/constraints"
 	"hash/maphash"
