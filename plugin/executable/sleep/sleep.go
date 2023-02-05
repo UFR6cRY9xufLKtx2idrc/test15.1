@@ -21,10 +21,10 @@ package sleep
 
 import (
 	"context"
-	"github.com/IrineSistiana/mosdns/v5/coremain"
-	"github.com/IrineSistiana/mosdns/v5/pkg/pool"
-	"github.com/IrineSistiana/mosdns/v5/pkg/query_context"
-	"github.com/IrineSistiana/mosdns/v5/plugin/executable/sequence"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/coremain"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/pool"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence"
 	"strconv"
 	"time"
 )
