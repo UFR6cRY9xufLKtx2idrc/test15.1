@@ -20,36 +20,36 @@
 package qname_matcher
 
 import (
-    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/matcher/domain"
-    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
-    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence"
-    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/base_domain"
-    "github.com/miekg/dns"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/matcher/domain"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/base_domain"
+	"github.com/miekg/dns"
 )
 
 const PluginType = "cname"
 
 func init() {
-    sequence.MustRegMatchQuickSetup(PluginType, QuickSetup)
+	sequence.MustRegMatchQuickSetup(PluginType, QuickSetup)
 }
 
 type Args = base_domain.Args
 
 func QuickSetup(bq sequence.BQ, s string) (sequence.Matcher, error) {
-    return base_domain.NewMatcher(bq, base_domain.ParseQuickSetupArgs(s), matchCName)
+	return base_domain.NewMatcher(bq, base_domain.ParseQuickSetupArgs(s), matchCName)
 }
 
 func matchCName(qCtx *query_context.Context, m domain.Matcher[struct{}]) (bool, error) {
-    r := qCtx.R()
-    if r == nil {
-        return false, nil
-    }
-    for _, rr := range r.Answer {
-        if cname, ok := rr.(*dns.CNAME); ok {
-            if _, ok := m.Match(cname.Target); ok {
-                return true, nil
-            }
-        }
-    }
-    return false, nil
+	r := qCtx.R()
+	if r == nil {
+		return false, nil
+	}
+	for _, rr := range r.Answer {
+		if cname, ok := rr.(*dns.CNAME); ok {
+			if _, ok := m.Match(cname.Target); ok {
+				return true, nil
+			}
+		}
+	}
+	return false, nil
 }
