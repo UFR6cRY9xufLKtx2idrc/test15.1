@@ -22,11 +22,11 @@ package base_ip
 import (
 	"context"
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/pkg/matcher/netlist"
-	"github.com/IrineSistiana/mosdns/v5/pkg/query_context"
-	"github.com/IrineSistiana/mosdns/v5/plugin/data_provider"
-	"github.com/IrineSistiana/mosdns/v5/plugin/data_provider/ip_set"
-	"github.com/IrineSistiana/mosdns/v5/plugin/executable/sequence"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/matcher/netlist"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/data_provider"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/data_provider/ip_set"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence"
 	"strings"
 )
 
