@@ -21,7 +21,7 @@ package env
 
 import (
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/plugin/executable/sequence"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence"
 	"os"
 	"strings"
 )
