@@ -20,110 +20,110 @@
 package server
 
 import (
-    "context"
-    "fmt"
-    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/mlog"
-    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/dnsutils"
-    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/pool"
-    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
-    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/server/dns_handler"
-    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/utils"
-    "go.uber.org/zap"
-    "net"
-    "time"
+	"context"
+	"fmt"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/mlog"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/dnsutils"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/pool"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/server/dns_handler"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/utils"
+	"go.uber.org/zap"
+	"net"
+	"time"
 )
 
 const (
-    defaultTCPIdleTimeout = time.Second * 10
-    tcpFirstReadTimeout   = time.Millisecond * 500
+	defaultTCPIdleTimeout = time.Second * 10
+	tcpFirstReadTimeout   = time.Millisecond * 500
 )
 
 type TCPServer struct {
-    opts TCPServerOpts
+	opts TCPServerOpts
 }
 
 func NewTCPServer(opts TCPServerOpts) *TCPServer {
-    opts.init()
-    return &TCPServer{opts: opts}
+	opts.init()
+	return &TCPServer{opts: opts}
 }
 
 type TCPServerOpts struct {
-    DNSHandler  dns_handler.Handler // Required.
-    Logger      *zap.Logger
-    IdleTimeout time.Duration
+	DNSHandler  dns_handler.Handler // Required.
+	Logger      *zap.Logger
+	IdleTimeout time.Duration
 }
 
 func (opts *TCPServerOpts) init() {
-    if opts.Logger == nil {
-        opts.Logger = mlog.Nop()
-    }
-    utils.SetDefaultNum(&opts.IdleTimeout, defaultTCPIdleTimeout)
-    return
+	if opts.Logger == nil {
+		opts.Logger = mlog.Nop()
+	}
+	utils.SetDefaultNum(&opts.IdleTimeout, defaultTCPIdleTimeout)
+	return
 }
 
 // ServeTCP starts a server at l. It returns if l had an Accept() error.
 // It always returns a non-nil error.
 func (s *TCPServer) ServeTCP(l net.Listener) error {
-    // handle listener
-    listenerCtx, cancel := context.WithCancel(context.Background())
-    defer cancel()
-    for {
-        c, err := l.Accept()
-        if err != nil {
-            return fmt.Errorf("unexpected listener err: %w", err)
-        }
+	// handle listener
+	listenerCtx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	for {
+		c, err := l.Accept()
+		if err != nil {
+			return fmt.Errorf("unexpected listener err: %w", err)
+		}
 
-        // handle connection
-        tcpConnCtx, cancelConn := context.WithCancel(listenerCtx)
-        go func() {
-            defer c.Close()
-            defer cancelConn()
+		// handle connection
+		tcpConnCtx, cancelConn := context.WithCancel(listenerCtx)
+		go func() {
+			defer c.Close()
+			defer cancelConn()
 
-            firstReadTimeout := tcpFirstReadTimeout
-            idleTimeout := s.opts.IdleTimeout
-            if idleTimeout < firstReadTimeout {
-                firstReadTimeout = idleTimeout
-            }
+			firstReadTimeout := tcpFirstReadTimeout
+			idleTimeout := s.opts.IdleTimeout
+			if idleTimeout < firstReadTimeout {
+				firstReadTimeout = idleTimeout
+			}
 
-            clientAddr := utils.GetAddrFromAddr(c.RemoteAddr())
+			clientAddr := utils.GetAddrFromAddr(c.RemoteAddr())
 
-            firstRead := true
-            for {
-                if firstRead {
-                    firstRead = false
-                    c.SetReadDeadline(time.Now().Add(firstReadTimeout))
-                } else {
-                    c.SetReadDeadline(time.Now().Add(idleTimeout))
-                }
-                req, _, err := dnsutils.ReadMsgFromTCP(c)
-                if err != nil {
-                    return // read err, close the connection
-                }
+			firstRead := true
+			for {
+				if firstRead {
+					firstRead = false
+					c.SetReadDeadline(time.Now().Add(firstReadTimeout))
+				} else {
+					c.SetReadDeadline(time.Now().Add(idleTimeout))
+				}
+				req, _, err := dnsutils.ReadMsgFromTCP(c)
+				if err != nil {
+					return // read err, close the connection
+				}
 
-                // handle query
-                go func() {
-                    qCtx := query_context.NewContext(req)
-                    query_context.SetClientAddr(qCtx, &clientAddr)
-                    if err := s.opts.DNSHandler.ServeDNS(tcpConnCtx, qCtx); err != nil {
-                        s.opts.Logger.Warn("handler err", zap.Error(err))
-                        c.Close()
-                        return
-                    }
-                    r := qCtx.R()
+				// handle query
+				go func() {
+					qCtx := query_context.NewContext(req)
+					query_context.SetClientAddr(qCtx, &clientAddr)
+					if err := s.opts.DNSHandler.ServeDNS(tcpConnCtx, qCtx); err != nil {
+						s.opts.Logger.Warn("handler err", zap.Error(err))
+						c.Close()
+						return
+					}
+					r := qCtx.R()
 
-                    b, buf, err := pool.PackBuffer(r)
-                    if err != nil {
-                        s.opts.Logger.Error("failed to unpack handler's response", zap.Error(err), zap.Stringer("msg", r))
-                        return
-                    }
-                    defer pool.ReleaseBuf(buf)
+					b, buf, err := pool.PackBuffer(r)
+					if err != nil {
+						s.opts.Logger.Error("failed to unpack handler's response", zap.Error(err), zap.Stringer("msg", r))
+						return
+					}
+					defer pool.ReleaseBuf(buf)
 
-                    if _, err := dnsutils.WriteRawMsgToTCP(c, b); err != nil {
-                        s.opts.Logger.Warn("failed to write response", zap.Stringer("client", c.RemoteAddr()), zap.Error(err))
-                        return
-                    }
-                }()
-            }
-        }()
-    }
+					if _, err := dnsutils.WriteRawMsgToTCP(c, b); err != nil {
+						s.opts.Logger.Warn("failed to write response", zap.Stringer("client", c.RemoteAddr()), zap.Error(err))
+						return
+					}
+				}()
+			}
+		}()
+	}
 }
