@@ -20,35 +20,35 @@
 package ptr_ip
 
 import (
-	"github.com/IrineSistiana/mosdns/v5/pkg/dnsutils"
-	"github.com/IrineSistiana/mosdns/v5/pkg/matcher/netlist"
-	"github.com/IrineSistiana/mosdns/v5/pkg/query_context"
-	"github.com/IrineSistiana/mosdns/v5/plugin/executable/sequence"
-	"github.com/IrineSistiana/mosdns/v5/plugin/matcher/base_ip"
-	"github.com/miekg/dns"
+    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/dnsutils"
+    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/matcher/netlist"
+    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
+    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence"
+    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/base_ip"
+    "github.com/miekg/dns"
 )
 
 const PluginType = "ptr_ip"
 
 func init() {
-	sequence.MustRegMatchQuickSetup(PluginType, QuickSetup)
+    sequence.MustRegMatchQuickSetup(PluginType, QuickSetup)
 }
 
 type Args = base_ip.Args
 
 func QuickSetup(bq sequence.BQ, s string) (sequence.Matcher, error) {
-	return base_ip.NewMatcher(bq, base_ip.ParseQuickSetupArgs(s), MatchQueryPtrIP)
+    return base_ip.NewMatcher(bq, base_ip.ParseQuickSetupArgs(s), MatchQueryPtrIP)
 }
 
 func MatchQueryPtrIP(qCtx *query_context.Context, m netlist.Matcher) (bool, error) {
-	q := qCtx.Q()
-	for _, question := range q.Question {
-		if question.Qtype == dns.TypePTR {
-			addr, _ := dnsutils.ParsePTRQName(question.Name) // Ignore parse error.
-			if addr.IsValid() && m.Match(addr) {
-				return true, nil
-			}
-		}
-	}
-	return false, nil
+    q := qCtx.Q()
+    for _, question := range q.Question {
+        if question.Qtype == dns.TypePTR {
+            addr, _ := dnsutils.ParsePTRQName(question.Name) // Ignore parse error.
+            if addr.IsValid() && m.Match(addr) {
+                return true, nil
+            }
+        }
+    }
+    return false, nil
 }
