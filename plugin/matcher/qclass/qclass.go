@@ -20,22 +20,22 @@
 package qclass
 
 import (
-	"github.com/IrineSistiana/mosdns/v5/pkg/query_context"
-	"github.com/IrineSistiana/mosdns/v5/plugin/executable/sequence"
-	"github.com/IrineSistiana/mosdns/v5/plugin/matcher/base_int"
+    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
+    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence"
+    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/base_int"
 )
 
 const PluginType = "qclass"
 
 func init() {
-	sequence.MustRegMatchQuickSetup(PluginType, base_int.QuickSetup(matchQClass))
+    sequence.MustRegMatchQuickSetup(PluginType, base_int.QuickSetup(matchQClass))
 }
 
 func matchQClass(qCtx *query_context.Context, m base_int.IntMatcher) (bool, error) {
-	for _, question := range qCtx.Q().Question {
-		if m.Has(int(question.Qclass)) {
-			return true, nil
-		}
-	}
-	return false, nil
+    for _, question := range qCtx.Q().Question {
+        if m.Has(int(question.Qclass)) {
+            return true, nil
+        }
+    }
+    return false, nil
 }
