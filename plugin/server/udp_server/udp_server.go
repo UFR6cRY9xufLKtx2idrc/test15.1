@@ -21,10 +21,10 @@ package udp_server
 
 import (
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/coremain"
-	"github.com/IrineSistiana/mosdns/v5/pkg/server"
-	"github.com/IrineSistiana/mosdns/v5/pkg/utils"
-	"github.com/IrineSistiana/mosdns/v5/plugin/server/server_utils"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/coremain"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/server"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/utils"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/server/server_utils"
 	"net"
 )
 
