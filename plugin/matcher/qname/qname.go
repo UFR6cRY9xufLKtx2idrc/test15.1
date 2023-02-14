@@ -20,29 +20,29 @@
 package qname
 
 import (
-	"github.com/IrineSistiana/mosdns/v5/pkg/matcher/domain"
-	"github.com/IrineSistiana/mosdns/v5/pkg/query_context"
-	"github.com/IrineSistiana/mosdns/v5/plugin/executable/sequence"
-	base "github.com/IrineSistiana/mosdns/v5/plugin/matcher/base_domain"
+    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/matcher/domain"
+    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
+    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence"
+    base "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/base_domain"
 )
 
 const PluginType = "qname"
 
 func init() {
-	sequence.MustRegMatchQuickSetup(PluginType, QuickSetup)
+    sequence.MustRegMatchQuickSetup(PluginType, QuickSetup)
 }
 
 type Args = base.Args
 
 func QuickSetup(bq sequence.BQ, s string) (sequence.Matcher, error) {
-	return base.NewMatcher(bq, base.ParseQuickSetupArgs(s), matchQName)
+    return base.NewMatcher(bq, base.ParseQuickSetupArgs(s), matchQName)
 }
 
 func matchQName(qCtx *query_context.Context, m domain.Matcher[struct{}]) (bool, error) {
-	for _, question := range qCtx.Q().Question {
-		if _, ok := m.Match(question.Name); ok {
-			return true, nil
-		}
-	}
-	return false, nil
+    for _, question := range qCtx.Q().Question {
+        if _, ok := m.Match(question.Name); ok {
+            return true, nil
+        }
+    }
+    return false, nil
 }
