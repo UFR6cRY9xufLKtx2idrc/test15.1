@@ -21,57 +21,57 @@ package plugin
 
 // data providers
 import (
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/data_provider/domain_set"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/data_provider/ip_set"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/data_provider/domain_set"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/data_provider/ip_set"
 )
 
 // matches
 import (
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/matcher/client_ip"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/matcher/cname"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/matcher/env"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/matcher/has_resp"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/matcher/has_wanted_ans"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/matcher/ptr_ip"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/matcher/qclass"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/matcher/qname"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/matcher/qtype"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/matcher/random"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/matcher/rcode"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/matcher/resp_ip"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/client_ip"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/cname"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/env"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/has_resp"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/has_wanted_ans"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/ptr_ip"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/qclass"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/qname"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/qtype"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/random"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/rcode"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/resp_ip"
 )
 
 // executables
 import (
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/arbitrary"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/black_hole"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/cache"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/debug_print"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/drop_resp"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/dual_selector"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/ecs"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/forward"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/hosts"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/ipset"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/metrics_collector"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/nftset"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/query_summary"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/redirect"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/reverse_lookup"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/sequence"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/sequence/fallback"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/sleep"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/executable/ttl"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/arbitrary"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/black_hole"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/cache"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/debug_print"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/drop_resp"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/dual_selector"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/ecs"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/forward"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/hosts"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/ipset"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/metrics_collector"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/nftset"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/query_summary"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/redirect"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/reverse_lookup"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence/fallback"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sleep"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/ttl"
 )
 
 // other
 import (
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/mark" // executable and matcher
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/mark" // executable and matcher
 )
 
 // servers
 import (
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/server/http_server"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/server/tcp_server"
-	_ "github.com/IrineSistiana/mosdns/v5/plugin/server/udp_server"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/server/http_server"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/server/tcp_server"
+	_ "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/server/udp_server"
 )
