@@ -21,9 +21,9 @@ package server_utils
 
 import (
 	"fmt"
-	"github.com/IrineSistiana/mosdns/v5/coremain"
-	"github.com/IrineSistiana/mosdns/v5/pkg/server/dns_handler"
-	"github.com/IrineSistiana/mosdns/v5/plugin/executable/sequence"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/coremain"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/server/dns_handler"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence"
 )
 
 func NewHandler(bp *coremain.BP, entry string) (dns_handler.Handler, error) {
