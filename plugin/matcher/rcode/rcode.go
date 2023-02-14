@@ -20,21 +20,21 @@
 package rcode
 
 import (
-    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
-    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence"
-    "github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/base_int"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/pkg/query_context"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/executable/sequence"
+	"github.com/UFR6cRY9xufLKtx2idrc/mosdns/main/plugin/matcher/base_int"
 )
 
 const PluginType = "rcode"
 
 func init() {
-    sequence.MustRegMatchQuickSetup(PluginType, base_int.QuickSetup(matchRcode))
+	sequence.MustRegMatchQuickSetup(PluginType, base_int.QuickSetup(matchRcode))
 }
 
 func matchRcode(qCtx *query_context.Context, m base_int.IntMatcher) (bool, error) {
-    r := qCtx.R()
-    if r == nil {
-        return false, nil
-    }
-    return m.Has(r.Rcode), nil
+	r := qCtx.R()
+	if r == nil {
+		return false, nil
+	}
+	return m.Has(r.Rcode), nil
 }
