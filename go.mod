@@ -10,7 +10,7 @@ require (
 	github.com/miekg/dns v1.1.52
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/nadoo/ipset v0.5.0
-	github.com/prometheus/client_golang v1.14.0
+	github.com/prometheus/client_golang v1.16.0
 	github.com/quic-go/quic-go v0.33.0
 	github.com/spf13/cobra v1.6.1
 	github.com/spf13/viper v1.15.0
@@ -20,8 +20,8 @@ require (
 	go4.org/netipx v0.0.0-20230303233057-f1b76eb4bb35
 	golang.org/x/exp v0.0.0-20230303215020-44a13b063f3e
 	golang.org/x/net v0.8.0
-	golang.org/x/sync v0.1.0
-	golang.org/x/sys v0.6.0
+	golang.org/x/sync v0.2.0
+	golang.org/x/sys v0.8.0
 	google.golang.org/protobuf v1.30.0
 )
 
@@ -52,7 +52,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/prometheus/client_model v0.3.0 // indirect
 	github.com/prometheus/common v0.42.0 // indirect
-	github.com/prometheus/procfs v0.9.0 // indirect
+	github.com/prometheus/procfs v0.10.1 // indirect
 	github.com/quic-go/qpack v0.4.0 // indirect
 	github.com/quic-go/qtls-go1-19 v0.2.1 // indirect
 	github.com/quic-go/qtls-go1-20 v0.1.1 // indirect
